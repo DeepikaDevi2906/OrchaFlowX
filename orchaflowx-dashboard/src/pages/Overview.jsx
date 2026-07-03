@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { GitBranch, Layers, CheckCircle, XCircle, Clock, Play } from "lucide-react";
+import { GitBranch, Layers, CheckCircle2, XCircle, Clock, Play } from "lucide-react";
 import { getWorkflows, getSteps } from "../api/client";
 
 function StatCard({ label, value, icon: Icon, accent }) {
@@ -71,7 +71,7 @@ export default function Overview() {
       }}>
         <StatCard label="Total Workflows" value={loading ? "—" : workflows.length} icon={GitBranch} accent="var(--accent)" />
         <StatCard label="Total Steps"     value={loading ? "—" : steps.length}     icon={Layers}    accent="var(--purple)" />
-        <StatCard label="Completed Steps" value={loading ? "—" : completed}         icon={CheckCircle} accent="var(--green)" />
+        <StatCard label="Completed Steps" value={loading ? "—" : completed} icon={CheckCircle2} accent="var(--green)" />
         <StatCard label="Failed Steps"    value={loading ? "—" : failed}            icon={XCircle}   accent="var(--red)" />
         <StatCard label="Pending Steps"   value={loading ? "—" : pending}           icon={Clock}     accent="var(--yellow)" />
       </div>
