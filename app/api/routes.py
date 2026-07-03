@@ -36,10 +36,6 @@ def get_db():
         db.close()
 
 
-# ------------------------
-# Workflow APIs
-# ------------------------
-
 @router.post("/")
 def create(
     workflow: WorkflowCreate,
@@ -55,9 +51,6 @@ def get_all(
     return get_all_workflows(db)
 
 
-# ------------------------
-# Step APIs
-# ------------------------
 
 @router.post("/steps")
 def add_step(
@@ -74,9 +67,6 @@ def list_steps(
     return get_all_steps(db)
 
 
-# ------------------------
-# Dependency APIs
-# ------------------------
 
 @router.post("/dependencies")
 def add_dependency(
@@ -85,10 +75,6 @@ def add_dependency(
 ):
     return create_dependency(db, dependency)
 
-
-# ------------------------
-# Execute Workflow
-# ------------------------
 
 @router.post("/{workflow_id}/execute")
 def execute_workflow(
@@ -104,11 +90,6 @@ def execute_workflow(
         "ready_steps": ready_steps
     }
 
-
-# ------------------------
-# Workflow by ID
-# (Keep these LAST)
-# ------------------------
 
 @router.get("/{workflow_id}")
 def get_workflow(

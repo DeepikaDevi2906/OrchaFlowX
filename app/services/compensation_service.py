@@ -1,11 +1,36 @@
-from core.compensation import COMPENSATION_ACTIONS
+def release_inventory():
+    print("Inventory Released")
+
+
+def refund_payment():
+    print("Payment Refunded")
+
+
+def cancel_invoice():
+    print("Invoice Cancelled")
+
+
+def notify_customer():
+    print("Customer Notified About Failure")
+
+
+def validate_customer():
+    print("Customer Validation Reverted")
 
 
 def compensate(step_name):
 
-    action = COMPENSATION_ACTIONS.get(step_name)
+    handlers = {
+        "Reserve Inventory": release_inventory,
+        "Process Payment": refund_payment,
+        "Generate Invoice": cancel_invoice,
+        "Notify Customer": notify_customer,
+        "Validate Customer": validate_customer
+    }
 
-    if action:
-        print(f"Compensating -> {action}")
+    handler = handlers.get(step_name)
+
+    if handler:
+        handler()
     else:
-        print(f"No compensation for {step_name}")
+        print(f"No compensation available for {step_name}")

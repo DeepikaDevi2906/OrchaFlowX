@@ -46,7 +46,6 @@ def find_next_ready_steps(db, workflow_id):
 
     ready_steps = []
 
-    # Get all pending steps
     pending_steps = (
         db.query(Step)
         .filter(
@@ -58,7 +57,6 @@ def find_next_ready_steps(db, workflow_id):
 
     for step in pending_steps:
 
-        # Get all parent dependencies
         dependencies = (
             db.query(Dependency)
             .filter(
@@ -69,7 +67,6 @@ def find_next_ready_steps(db, workflow_id):
 
         is_ready = True
 
-        # Check whether every parent is completed
         for dependency in dependencies:
 
             parent = (
