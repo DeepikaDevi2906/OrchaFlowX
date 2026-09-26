@@ -15,6 +15,8 @@ OrchaFlowX is a distributed workflow orchestration platform that executes depend
 - Automatic Step Scheduling
 - Configurable Retry Mechanism
 - Saga-inspired Compensation
+- Prometheus Metrics
+- Grafana Dashboard
 - PostgreSQL Persistence
 - RESTful APIs with FastAPI
 - Docker Support
@@ -332,5 +334,3 @@ Notify Customer
 - JWT Authentication
 - WebSocket Live Updates
 - Kubernetes Deployment
-- Prometheus Metrics
-- Grafana Dashboard
